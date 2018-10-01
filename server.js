@@ -1,6 +1,8 @@
 const express = require('express')
 
-var app = express()
+const app = express()
+
+app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
     // res.send('<h1>Hello Express!</h1>')
@@ -19,4 +21,6 @@ app.get('/bad', (req, res) => {
     res.send({ errorMessage: 'Unable to handle request.'} )
 })
 
-app.listen(3000)
+app.listen(3000, () => {
+    console.log('Server is running on port 3000')
+})
